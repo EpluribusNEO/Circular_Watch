@@ -26,9 +26,17 @@ namespace Circular_Watch.Code
 
         public Circles()
         {
-            clrSeconds = Color.FromArgb(255, 250, 120, 158);
+            seconds = 45;
+            minutes = 38;
+            hours = 8;
 
+            clrSeconds = Color.Red;//FromArgb(255, 250, 120, 158);
+            clrMinutes = Color.Green;
+            clrHours   = Color.Blue;
+ 
             clrBackGround = Color.White;
+
+
 
             InitializeComponent();
         }
@@ -46,32 +54,46 @@ namespace Circular_Watch.Code
         private void Circles_Paint(object sender, PaintEventArgs e)
         {
 
-            /* Секунды */
-        
             e.Graphics.TranslateTransform(this.Width / 2, this.Height / 2);
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             e.Graphics.RotateTransform(-90);
-            pen = new Pen(clrSeconds);
-            rect = new Rectangle(0 - this.Width / 2 + 10, 0 - this.Height / 2 + 10, this.Width - 20, this.Height - 20);
-            e.Graphics.DrawPie(pen, rect, 0, (int)(this.seconds * 6));
-            e.Graphics.FillPie(new SolidBrush(clrSeconds), rect, 0, (int)(this.seconds * 6));
-            /* /Секунды */
 
-            /* Минуты */
-            /* /Минуты */
-
-            /* Часы */
-            /* /Часы */
 
             /* Центральная заливка */
             pen = new Pen(clrBackGround);
-            rect = new Rectangle(0 - this.Width / 2 + 25, 0 - this.Height / 2 + 25, this.Width-50, this.Height - 50);
+            rect = new Rectangle(0 - this.Width / 2, 0 - this.Height / 2, this.Width, this.Height);
             e.Graphics.DrawPie(pen, rect, 0, 360);
             e.Graphics.FillPie(new SolidBrush(clrBackGround), rect, 0, 360);
             /* /Центральная заливка */
 
+            /* Секунды */
+            pen = new Pen(clrSeconds, 10);
+            rect = new Rectangle(0 - this.Width / 2 + 10, 0 - this.Height / 2 + 10, this.Width - 20, this.Height - 20);
+            e.Graphics.DrawArc(pen, rect, 0, (int)(this.seconds * 6));
+            //e.Graphics.DrawPie(pen, rect, 0, (int)(this.seconds * 6));
+            //e.Graphics.FillPie(new SolidBrush(clrSeconds), rect, 0, (int)(this.seconds * 6));
+            /* /Секунды */
+
+            /* Минуты */
+            pen = new Pen(clrMinutes, 10);
+            rect = new Rectangle(0 - this.Width / 2 + 22, 0 - this.Height / 2 + 22, this.Width - 44, this.Height - 44);
+            e.Graphics.DrawArc(pen, rect, 0, (int)(this.minutes * 6));
+            //e.Graphics.DrawPie(pen, rect, 0, (int)(this.minutes*6));
+            //e.Graphics.FillPie(new SolidBrush(clrMinutes), rect, 0, (int)(this.minutes * 6));
+            /* /Минуты */
+
+            /* Часы */
+            pen = new Pen(clrHours, 10);
+            rect = new Rectangle(0 - this.Width / 2 + 34, 0 - this.Height / 2 + 34, this.Width - 68, this.Height - 68);
+            e.Graphics.DrawArc(pen, rect, 0, (int)(this.hours * 15));
+            //e.Graphics.DrawPie(pen, rect, 0, (int)(this.hours * 15));
+            //e.Graphics.FillPie(new SolidBrush(clrHours), rect, 0, (int)(this.hours * 15));
+            /* /Часы */
+
+            
+
             /* Текс */
-            String strTime = String.Format("{0}", this.seconds);
+            String strTime = String.Format("{0}:{1}:{2}", this.hours,this.minutes,this.seconds);
             StringFormat strFrmt = new StringFormat();
             strFrmt.LineAlignment = StringAlignment.Center;
             strFrmt.Alignment = StringAlignment.Center;
