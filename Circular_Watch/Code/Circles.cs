@@ -35,7 +35,7 @@ namespace Circular_Watch.Code
             clrMinutes = Color.FromArgb(255, 50, 190, 90);
             clrHours   = Color.FromArgb(255, 50, 150, 200); ;
             clrText = Color.FromArgb(255, 250, 50, 120);
-            clrBackGround = Color.White;
+            clrBackGround = Color.Black;
             
             InitializeComponent();
 
@@ -96,7 +96,7 @@ namespace Circular_Watch.Code
             /* /Часы */
 
             /* Текс */
-            String strTime = String.Format("{0}:{1}:{2}", this.hours,this.minutes,this.seconds);
+            String strTime = String.Format("{0}:{1}:{2}", formatTime(this.hours), formatTime(this.minutes), formatTime(this.seconds));
             StringFormat strFrmt = new StringFormat();
             strFrmt.LineAlignment = StringAlignment.Center;
             strFrmt.Alignment = StringAlignment.Center;
@@ -113,6 +113,17 @@ namespace Circular_Watch.Code
             
             this.UpdateTime(hours,minutes,seconds);
             this.Invalidate();
+        }
+
+        private string formatTime(int time)
+        {
+            string res;
+            if (time < 10)
+                res = "0" + time.ToString();
+            else
+                res = time.ToString();
+            
+            return res; 
         }
     }
 }

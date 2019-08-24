@@ -12,12 +12,34 @@ namespace Circular_Watch
 {
     public partial class frmMain : Form
     {
+        private bool _isMouseDown = false;
+        private Point _mouseoffset;
+        private bool isWindHiden;
+
         public frmMain()
         {
-            //TopMost = true;
+            
             InitializeComponent();
 
             TheTimer.Enabled = true;
+            this.ShowInTaskbar = false;
+            this.notifyIcon.Visible = true;
+            this.isWindHiden = false;
+
+            
+        }
+
+        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        {
+            //Форма
+            System.Drawing.Drawing2D.GraphicsPath shape = new System.Drawing.Drawing2D.GraphicsPath(); // Форма Формы
+            shape.AddEllipse(0, 0, this.Width, this.Height);
+            this.Region = new System.Drawing.Region(shape);    
+
+            System.Drawing.Drawing2D.GraphicsPath shapeCircle = new System.Drawing.Drawing2D.GraphicsPath();
+            shapeCircle.AddEllipse(0, 0, this.circles1.Width, this.circles1.Height);
+            this.circles1.Region = new System.Drawing.Region(shapeCircle);
+            
         }
 
         private void TheTimer_Tick(object sender, EventArgs e)
@@ -30,5 +52,84 @@ namespace Circular_Watch
             TheTimer.Enabled = !TheTimer.Enabled;
         }
 
+        private void circles1_DoubleClick(object sender, EventArgs e)
+        {
+            OverAllForms();
+        }
+
+        private void frmMain_MouseDown(object sender, MouseEventArgs e)
+        {
+            int xOffset;
+            int yOffset;
+
+            if(e.Button == MouseButtons.Left)
+            {
+                xOffset = -e.X - SystemInformation.FrameBorderSize.Width;
+                yOffset = -e.Y - SystemInformation.CaptionHeight - SystemInformation.FrameBorderSize.Height;
+                _mouseoffset = new Point(xOffset, yOffset);
+                _isMouseDown = true;
+            }
+        }
+
+        private void frmMain_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_isMouseDown)
+            {
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(_mouseoffset.X, _mouseoffset.Y);
+                Location = mousePos;
+            }
+        }
+
+        private void frmMain_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                _isMouseDown = false;
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void overAllFormsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OverAllForms();
+            
+        }
+
+        private void OverAllForms()
+        {
+            this.TopMost = !this.TopMost;
+            if(this.TopMost)
+                this.overAllFormsToolStripMenuItem.Text = "Under forms";
+            else
+                this.overAllFormsToolStripMenuItem.Text = "Over all forms";
+
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.TheTimer.Enabled = false;
+            this.notifyIcon.Visible = false;
+        }
+
+        private void hideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.isWindHiden)
+            {
+                this.Show();
+                this.hideToolStripMenuItem.Text = "Hide";
+
+            }
+            else
+            {
+                this.Hide();
+                this.hideToolStripMenuItem.Text = "Show";
+            }
+            this.isWindHiden = !this.isWindHiden;
+        }
     }
 }
