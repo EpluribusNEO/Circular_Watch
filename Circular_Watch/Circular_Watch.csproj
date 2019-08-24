@@ -107,9 +107,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Watch64.ico" />
     <Content Include="Watch64b.ico" />
-    <Content Include="Watch64f.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
