@@ -8,4 +8,3 @@ C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Debug\Circular_Wa
 C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Debug\Circular_Watch.csproj.CoreCompileInputs.cache
 C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Debug\Circular_Watch.exe
 C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Debug\Circular_Watch.pdb
-C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Debug\Circular_Watch.csprojAssemblyReference.cache

@@ -19,6 +19,7 @@ namespace Circular_Watch.Code
         private Color clrSeconds;
         private Color clrMinutes;
         private Color clrHours;
+        private Color clrText;
         private Color clrBackGround;
 
         Pen pen;
@@ -30,10 +31,10 @@ namespace Circular_Watch.Code
             minutes = 38;
             hours = 8;
 
-            clrSeconds = Color.Red;//FromArgb(255, 250, 120, 158);
-            clrMinutes = Color.Green;
-            clrHours   = Color.Blue;
- 
+            clrSeconds = Color.FromArgb(255, 255, 50, 90);
+            clrMinutes = Color.FromArgb(255, 50, 190, 90);
+            clrHours   = Color.FromArgb(255, 50, 150, 200); ;
+            clrText = Color.FromArgb(255, 250, 50, 120);
             clrBackGround = Color.White;
 
 
@@ -54,14 +55,15 @@ namespace Circular_Watch.Code
         private void Circles_Paint(object sender, PaintEventArgs e)
         {
 
+            /* общие настройки */
             e.Graphics.TranslateTransform(this.Width / 2, this.Height / 2);
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             e.Graphics.RotateTransform(-90);
-
+            /* /общие настройки */
 
             /* Центральная заливка */
             pen = new Pen(clrBackGround);
-            rect = new Rectangle(0 - this.Width / 2, 0 - this.Height / 2, this.Width, this.Height);
+            rect = new Rectangle(0 - this.Width / 2+5, 0 - this.Height / 2+5, this.Width-10, this.Height-10);
             e.Graphics.DrawPie(pen, rect, 0, 360);
             e.Graphics.FillPie(new SolidBrush(clrBackGround), rect, 0, 360);
             /* /Центральная заливка */
@@ -90,15 +92,13 @@ namespace Circular_Watch.Code
             //e.Graphics.FillPie(new SolidBrush(clrHours), rect, 0, (int)(this.hours * 15));
             /* /Часы */
 
-            
-
             /* Текс */
             String strTime = String.Format("{0}:{1}:{2}", this.hours,this.minutes,this.seconds);
             StringFormat strFrmt = new StringFormat();
             strFrmt.LineAlignment = StringAlignment.Center;
             strFrmt.Alignment = StringAlignment.Center;
             e.Graphics.RotateTransform(90);
-            e.Graphics.DrawString(strTime, new Font("Aria", 22), new SolidBrush(clrSeconds), rect, strFrmt);
+            e.Graphics.DrawString(strTime, new Font("Aria", 22, FontStyle.Bold), new SolidBrush(clrText), rect, strFrmt);
             /* /Текст */
         }
     }
