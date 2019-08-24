@@ -14,7 +14,21 @@ namespace Circular_Watch
     {
         public frmMain()
         {
+            //TopMost = true;
             InitializeComponent();
+
+            TheTimer.Enabled = true;
         }
+
+        private void TheTimer_Tick(object sender, EventArgs e)
+        {
+            this.circles1.TimeTick();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            TheTimer.Enabled = !TheTimer.Enabled;
+        }
+
     }
 }

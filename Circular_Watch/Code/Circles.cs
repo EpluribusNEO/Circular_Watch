@@ -27,23 +27,23 @@ namespace Circular_Watch.Code
 
         public Circles()
         {
-            seconds = 45;
-            minutes = 38;
-            hours = 8;
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
 
             clrSeconds = Color.FromArgb(255, 255, 50, 90);
             clrMinutes = Color.FromArgb(255, 50, 190, 90);
             clrHours   = Color.FromArgb(255, 50, 150, 200); ;
             clrText = Color.FromArgb(255, 250, 50, 120);
             clrBackGround = Color.White;
-
-
-
+            
             InitializeComponent();
+
+            this.TimeTick();
         }
 
 
-        public void UpdateTime(int seconds, int minutes, int hours)
+        public void UpdateTime(int hours, int minutes, int seconds)
         {
             this.seconds = seconds;
             this.minutes = minutes;
@@ -87,7 +87,10 @@ namespace Circular_Watch.Code
             /* Часы */
             pen = new Pen(clrHours, 10);
             rect = new Rectangle(0 - this.Width / 2 + 34, 0 - this.Height / 2 + 34, this.Width - 68, this.Height - 68);
-            e.Graphics.DrawArc(pen, rect, 0, (int)(this.hours * 15));
+            int h = this.hours;
+            if ( h > 12)
+                h = h - 12;
+            e.Graphics.DrawArc(pen, rect, 0, (int)(h * 30));
             //e.Graphics.DrawPie(pen, rect, 0, (int)(this.hours * 15));
             //e.Graphics.FillPie(new SolidBrush(clrHours), rect, 0, (int)(this.hours * 15));
             /* /Часы */
@@ -98,8 +101,18 @@ namespace Circular_Watch.Code
             strFrmt.LineAlignment = StringAlignment.Center;
             strFrmt.Alignment = StringAlignment.Center;
             e.Graphics.RotateTransform(90);
-            e.Graphics.DrawString(strTime, new Font("Aria", 22, FontStyle.Bold), new SolidBrush(clrText), rect, strFrmt);
+            e.Graphics.DrawString(strTime, new Font("Aria", 20, FontStyle.Bold), new SolidBrush(clrText), rect, strFrmt);
             /* /Текст */
+        }
+
+        public void TimeTick()
+        {
+            hours = DateTime.Now.Hour;
+            minutes = DateTime.Now.Minute;
+            seconds = DateTime.Now.Second;
+            
+            this.UpdateTime(hours,minutes,seconds);
+            this.Invalidate();
         }
     }
 }

@@ -1,0 +1,11 @@
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\bin\Release\Circular_Watch.exe.config
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\bin\Release\Circular_Watch.exe
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\bin\Release\Circular_Watch.pdb
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.csprojAssemblyReference.cache
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.Code.Circles.resources
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.frmMain.resources
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.Properties.Resources.resources
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.csproj.GenerateResource.cache
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.csproj.CoreCompileInputs.cache
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.exe
+C:\Den\Programming\Sharp_new\Circular_Watch\Circular_Watch\obj\Release\Circular_Watch.pdb
