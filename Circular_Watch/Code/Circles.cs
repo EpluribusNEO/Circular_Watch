@@ -50,6 +50,7 @@ namespace Circular_Watch.Code
             this.hours   = hours;
 
             this.Invalidate();
+
         }
 
         private void Circles_Paint(object sender, PaintEventArgs e)
@@ -72,16 +73,12 @@ namespace Circular_Watch.Code
             pen = new Pen(clrSeconds, 10);
             rect = new Rectangle(0 - this.Width / 2 + 10, 0 - this.Height / 2 + 10, this.Width - 20, this.Height - 20);
             e.Graphics.DrawArc(pen, rect, 0, (int)(this.seconds * 6));
-            //e.Graphics.DrawPie(pen, rect, 0, (int)(this.seconds * 6));
-            //e.Graphics.FillPie(new SolidBrush(clrSeconds), rect, 0, (int)(this.seconds * 6));
             /* /Секунды */
 
             /* Минуты */
             pen = new Pen(clrMinutes, 10);
             rect = new Rectangle(0 - this.Width / 2 + 22, 0 - this.Height / 2 + 22, this.Width - 44, this.Height - 44);
             e.Graphics.DrawArc(pen, rect, 0, (int)(this.minutes * 6));
-            //e.Graphics.DrawPie(pen, rect, 0, (int)(this.minutes*6));
-            //e.Graphics.FillPie(new SolidBrush(clrMinutes), rect, 0, (int)(this.minutes * 6));
             /* /Минуты */
 
             /* Часы */
@@ -91,8 +88,6 @@ namespace Circular_Watch.Code
             if ( h > 12)
                 h = h - 12;
             e.Graphics.DrawArc(pen, rect, 0, (int)(h * 30));
-            //e.Graphics.DrawPie(pen, rect, 0, (int)(this.hours * 15));
-            //e.Graphics.FillPie(new SolidBrush(clrHours), rect, 0, (int)(this.hours * 15));
             /* /Часы */
 
             /* Текс */

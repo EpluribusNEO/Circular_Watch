@@ -18,7 +18,6 @@ namespace Circular_Watch
 
         public frmMain()
         {
-            
             InitializeComponent();
 
             TheTimer.Enabled = true;
@@ -26,20 +25,25 @@ namespace Circular_Watch
             this.notifyIcon.Visible = true;
             this.isWindHiden = false;
 
-            
+            /* Разместить окно в нужном месте, при старте */
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(SystemInformation.VirtualScreen.Width - this.Width-20,
+                SystemInformation.VirtualScreen.Height - this.Height - 50);
         }
 
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
-            //Форма
-            System.Drawing.Drawing2D.GraphicsPath shape = new System.Drawing.Drawing2D.GraphicsPath(); // Форма Формы
+            // Форма System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            System.Drawing.Drawing2D.GraphicsPath shape;
+            shape = new System.Drawing.Drawing2D.GraphicsPath(); 
             shape.AddEllipse(0, 0, this.Width, this.Height);
-            this.Region = new System.Drawing.Region(shape);    
+            this.Region = new System.Drawing.Region(shape);
+            // /Форма
 
-            System.Drawing.Drawing2D.GraphicsPath shapeCircle = new System.Drawing.Drawing2D.GraphicsPath();
+            System.Drawing.Drawing2D.GraphicsPath shapeCircle;
+            shapeCircle = new System.Drawing.Drawing2D.GraphicsPath();
             shapeCircle.AddEllipse(0, 0, this.circles1.Width, this.circles1.Height);
             this.circles1.Region = new System.Drawing.Region(shapeCircle);
-            
         }
 
         private void TheTimer_Tick(object sender, EventArgs e)
@@ -106,7 +110,7 @@ namespace Circular_Watch
             if(this.TopMost)
                 this.overAllFormsToolStripMenuItem.Text = "Under forms";
             else
-                this.overAllFormsToolStripMenuItem.Text = "Over all forms";
+                this.overAllFormsToolStripMenuItem.Text = "Over forms";
 
         }
 
@@ -130,6 +134,11 @@ namespace Circular_Watch
                 this.hideToolStripMenuItem.Text = "Show";
             }
             this.isWindHiden = !this.isWindHiden;
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            hideToolStripMenuItem_Click(sender, e);
         }
     }
 }

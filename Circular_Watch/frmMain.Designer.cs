@@ -35,9 +35,9 @@
             this.myMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overAllFormsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.circles1 = new Circular_Watch.Code.Circles();
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.circles1 = new Circular_Watch.Code.Circles();
             this.myMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "Watch";
             this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
             // myMenuStrip
             // 
@@ -61,21 +62,33 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.myMenuStrip.Name = "myMenuStrip";
-            this.myMenuStrip.Size = new System.Drawing.Size(181, 98);
+            this.myMenuStrip.Size = new System.Drawing.Size(134, 76);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // overAllFormsToolStripMenuItem
             // 
             this.overAllFormsToolStripMenuItem.Name = "overAllFormsToolStripMenuItem";
-            this.overAllFormsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.overAllFormsToolStripMenuItem.Text = "Over all forms";
+            this.overAllFormsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.overAllFormsToolStripMenuItem.Text = "Over forms";
             this.overAllFormsToolStripMenuItem.Click += new System.EventHandler(this.overAllFormsToolStripMenuItem_Click);
+            // 
+            // hideToolStripMenuItem
+            // 
+            this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
+            this.hideToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.hideToolStripMenuItem.Text = "Hide";
+            this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
             // 
             // circles1
             // 
@@ -88,18 +101,6 @@
             this.circles1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmMain_MouseDown);
             this.circles1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMain_MouseMove);
             this.circles1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmMain_MouseUp);
-            // 
-            // hideToolStripMenuItem
-            // 
-            this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
-            this.hideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hideToolStripMenuItem.Text = "Hide";
-            this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // frmMain
             // 
