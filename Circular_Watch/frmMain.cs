@@ -15,6 +15,7 @@ namespace Circular_Watch
         private bool _isMouseDown = false;
         private Point _mouseoffset;
         private bool isWindHiden;
+        private bool isTransparate;
 
         public frmMain()
         {
@@ -24,6 +25,7 @@ namespace Circular_Watch
             this.ShowInTaskbar = false;
             this.notifyIcon.Visible = true;
             this.isWindHiden = false;
+            this.isTransparate = false;
 
             /* Разместить окно в нужном месте, при старте */
             this.StartPosition = FormStartPosition.Manual;
@@ -139,6 +141,25 @@ namespace Circular_Watch
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             hideToolStripMenuItem_Click(sender, e);
+        }
+
+        private void transparentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // this.circles1.BackColor = Color.FromArgb(255, 0, 0, 255);
+            //this.circles1.setBackGround(Color.FromArgb(255, 0, 0, 255));
+            if (this.isTransparate)
+            {
+                this.TransparencyKey = Color.Lime;
+                this.transparentToolStripMenuItem.Text = "Transparent";
+            }
+            else
+            {
+                this.TransparencyKey = Color.Black;
+                this.transparentToolStripMenuItem.Text = "Black";
+            }
+
+            this.isTransparate = !this.isTransparate;
+            
         }
     }
 }

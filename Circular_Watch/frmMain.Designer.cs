@@ -33,10 +33,11 @@
             this.TheTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.myMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overAllFormsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transparentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.circles1 = new Circular_Watch.Code.Circles();
             this.myMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -59,36 +60,44 @@
             this.myMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.overAllFormsToolStripMenuItem,
             this.hideToolStripMenuItem,
+            this.transparentToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.myMenuStrip.Name = "myMenuStrip";
-            this.myMenuStrip.Size = new System.Drawing.Size(134, 76);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.myMenuStrip.Size = new System.Drawing.Size(138, 98);
             // 
             // overAllFormsToolStripMenuItem
             // 
             this.overAllFormsToolStripMenuItem.Name = "overAllFormsToolStripMenuItem";
-            this.overAllFormsToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.overAllFormsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.overAllFormsToolStripMenuItem.Text = "Over forms";
             this.overAllFormsToolStripMenuItem.Click += new System.EventHandler(this.overAllFormsToolStripMenuItem_Click);
             // 
             // hideToolStripMenuItem
             // 
             this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
-            this.hideToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.hideToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.hideToolStripMenuItem.Text = "Hide";
             this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // transparentToolStripMenuItem
+            // 
+            this.transparentToolStripMenuItem.Name = "transparentToolStripMenuItem";
+            this.transparentToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.transparentToolStripMenuItem.Text = "Transparent";
+            this.transparentToolStripMenuItem.Click += new System.EventHandler(this.transparentToolStripMenuItem_Click);
             // 
             // circles1
             // 
@@ -129,6 +138,7 @@
         private System.Windows.Forms.ToolStripMenuItem overAllFormsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem transparentToolStripMenuItem;
     }
 }
 

@@ -42,6 +42,10 @@ namespace Circular_Watch.Code
             this.TimeTick();
         }
 
+        public void setBackGround(Color clr)
+        {
+            this.clrBackGround = clr;
+        }
 
         public void UpdateTime(int hours, int minutes, int seconds)
         {
@@ -91,7 +95,8 @@ namespace Circular_Watch.Code
             /* /Часы */
 
             /* Текс */
-            String strTime = String.Format("{0}:{1}:{2}", formatTime(this.hours), formatTime(this.minutes), formatTime(this.seconds));
+            String strTime = String.Format("{0}:{1}:{2}", 
+                formatTime(this.hours), formatTime(this.minutes), formatTime(this.seconds));
             StringFormat strFrmt = new StringFormat();
             strFrmt.LineAlignment = StringAlignment.Center;
             strFrmt.Alignment = StringAlignment.Center;
